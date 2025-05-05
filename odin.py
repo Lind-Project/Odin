@@ -3,8 +3,12 @@ import requests
 import docker
 import logging
 from datetime import datetime
+import environ
 
-GITHUB_TOKEN = ''
+env = environ.Env()
+environ.Env.read_env()
+
+GITHUB_TOKEN = env('GITHUB_TOKEN')
 GITHUB_ORG = 'Lind-Project'
 POLL_INTERVAL = 300  # Poll every 60 seconds
 MIN_IDLE_TIME = 300  # Minimum idle time before scaling down (in seconds)
